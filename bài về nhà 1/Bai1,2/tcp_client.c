@@ -26,6 +26,11 @@ int main( int argc, char *argv[]){
 
     // Gui tin nhan den server
     char msg[256];
+    // Nhan tin nhan tu server
+    char buf[2048];
+    int len = recv(client, buf, sizeof(buf), 0);
+    buf[len] = 0;
+    printf("Data received from server: %s\n", buf);
     while (1)
     {
         printf("Enter massage send to server: ");
@@ -34,11 +39,7 @@ int main( int argc, char *argv[]){
         if (strncmp(msg, "exit", 4) == 0){
            break;
         }
-        // Nhan tin nhan tu server
-        char buf[2048];
-        int len = recv(client, buf, sizeof(buf), 0);
-        buf[len] = 0;
-        printf("Data received from server: %s\n", buf);
+        
     }
     
 

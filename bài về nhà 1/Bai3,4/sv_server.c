@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
     //int ret;
     //lưu nội dung client gửi đến
     char msg[2048]; 
-    FILE *fp = fopen("log.txt", "w");
+    FILE *fp = fopen("sv_log.txt", "w");
     if (fp == NULL) { // kiểm tra nếu file không mở được
       printf("Không thể mở tệp.");
       return 1;

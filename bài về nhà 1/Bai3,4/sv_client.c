@@ -38,29 +38,62 @@ int main( int argc, char *argv[]){
     }
 
     // Gui tin nhan den server
+    char buf[300] = "",x[100];
     Sinhvien sv;
+    // printf("Nhap id: ");
+    // scanf("%s", sv.id);fflush(stdin);
+    // printf("\n");
+
+    // printf("Nhap ho ten: ");
+    // fgets(sv.hoten, sizeof(sv.hoten), stdin);
+    // // int a = strcspn(sv.hoten, "\n");
+    // // strncpy(x, sv.hoten, a);
+    // // x[a] = '\0';
+    // //x= 
+    // printf("\n");
+    // printf("Nhap ngay sinh: ");
+    // scanf("%s",sv.ngaySinh);
+    // printf("\n");
+    // printf("Nhap diem: ");
+    // scanf("%s",sv.diemtb);
+    // printf("\n");
+
     printf("Nhap id: ");
-    scanf("%s", sv.id);
-    printf("\n");
+    fgets(sv.id, sizeof(sv.id), stdin);
+    fflush(stdin);
+    int a = strcspn(sv.id, "\n");
+    strncpy(x, sv.id, a);
+    x[a] = '\0';
+    strcat(buf, x);
+    strcat(buf, " ");
 
     printf("Nhap ho ten: ");
-    scanf("%s",sv.hoten);
-    printf("\n");
+    fgets(sv.hoten, sizeof(sv.hoten), stdin);
+    fflush(stdin);
+    a = strcspn(sv.hoten, "\n");
+    strncpy(x, sv.hoten, a);
+    x[a] = '\0';
+    strcat(buf, x);
+    strcat(buf, " ");
+
     printf("Nhap ngay sinh: ");
-    scanf("%s",sv.ngaySinh);
-    printf("\n");
+    fgets(sv.ngaySinh, sizeof(sv.ngaySinh), stdin);
+    fflush(stdin);
+    a = strcspn(sv.ngaySinh, "\n");
+    strncpy(x, sv.ngaySinh, a);
+    x[a] = '\0';
+    strcat(buf, x);
+    strcat(buf, " ");
+
     printf("Nhap diem: ");
-    scanf("%s",sv.diemtb);
-    printf("\n");
-    char buf[300] = "";
-    strcpy(buf, " ");
-    strcat(buf, sv.id);
+    fgets(sv.diemtb, sizeof(sv.diemtb), stdin);
+    fflush(stdin);
+    a = strcspn(sv.diemtb, "\n");
+    strncpy(x, sv.diemtb, a);
+    x[a] = '\0';    
+    strcat(buf, x);
     strcat(buf, " ");
-    strcat(buf, sv.hoten);
-    strcat(buf, " ");
-    strcat(buf, sv.ngaySinh);
-    strcat(buf, " ");
-    strcat(buf, sv.diemtb);
+
     send(client, buf, sizeof(buf), 0);
     // Dong ket noi
     close(client);
